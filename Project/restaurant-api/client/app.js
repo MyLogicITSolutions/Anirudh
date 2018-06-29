@@ -9,3 +9,13 @@ myApp.config(function($routeProvider){
         redirectTo: '/'
     })
 });
+
+
+myApp.controller('dishescontrollers',['$scope','$http','$location','$routeParams', function($scope,$http,$location,$routeParams){
+    $scope.getDishes = function(){
+        $http({ method: 'GET', url:'/api/dishes'}).then(function(response){
+            
+            $scope.dishes=response.data;
+        });
+    }
+}]);

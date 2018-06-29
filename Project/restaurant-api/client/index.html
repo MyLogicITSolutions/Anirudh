@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp" >
+<html lang="en" ng-app='myApp' >
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +33,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" ng-app ng-init="placesVisited=['Delhi','Kerala','Tamil Nadu',
+                                     'Banglore','Uttar Pradesh','Noida','Haryana','Thrissur'];">
 <!-- Header -->
 <header id="header">
   <div class="intro">
@@ -49,10 +50,19 @@
   </div>
 </header>
 <!-- Restaurant Menu Section -->
+         <div>  
+            <input type="text" ng-model="curPlace" class="form-control" >  
+            <ul>  
+                <li ng-repeat="place in placesVisited | filter:curPlace">  
+                <a ng-href="https://www.google.co.in/webhp?q={{place}}">{{place}} </a>  
+                </li>  
+            </ul>  
+    </div>  
+    <script src="angular.min.js"></script>  
 <div id="restaurant-menu">
   <div class="container">
     <div class="section-title text-center">
-      <h2>Menu</h2>
+      
     </div>
     <div class="row" >
         <div ng-view></div>
